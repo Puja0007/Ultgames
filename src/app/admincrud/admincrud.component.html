@@ -1,0 +1,120 @@
+<div style="background-color:rgb(245, 243, 240)">
+    <div class="container" >
+        <div class="row justify-content-center">
+            <div class="col-12" style="margin-top:20px; background-color: white;">
+                <h3 style="display: inline;"><i-feather name="cpu" class="mr-2 text-primary"></i-feather>GAMES</h3>
+                <button style="float: right; margin-top:10px;"  class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">ADD <i-feather name="plus"></i-feather></button>
+                <br><br>
+                <p>Admin can view, add, edit, activate/deactivate or release a Game.</p>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-hover">
+                    <thead class="table-secondary">
+                        <tr>
+                            <th scope="col">Game Name</th>
+                            <th scope="col">Game ID</th>
+                            <th scope="col">Pro Value</th>
+                            <th scope="col">Pro Value Score</th>
+                            <th scope="col">Regular value</th>
+                            <th scope="col">Regular Value Score</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white">
+
+                        <ng-container >
+                            <tr>
+                                <td></td> 
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    
+                                    <i-feather class="text-primary" name="eye" title="Details"></i-feather>&nbsp;&nbsp;
+                                    <button class="btn btn-link" data-toggle="modal" data-target="#exampleModal">
+                                        <i-feather class="text-warning" name="edit" rel="tooltip" title="Edit"></i-feather>&nbsp;&nbsp;
+                                    </button>
+                                    
+                                    <i-feather name="trash" title="Delete"></i-feather>&nbsp;&nbsp;
+
+                    
+                                </td>
+                            </tr>
+                        </ng-container>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+   
+</div> 
+
+
+<!-- Modal -->
+<form [formGroup]="gameData">
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Add New Game</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-md-12">
+    
+    
+    
+                    <label>Enter Game Name</label>
+    
+                    <input type="text" class="form-control" placeholder="Enter Name" id="brand" formControlName="name">
+                </div>
+                    </div> 
+                      <br>
+                    <div class="row">
+                        <div class="col-md-6">
+                                    <label>Enter Cash Price</label>
+                            <input type="text" class="form-control" placeholder="Enter Cash Price" formControlName="cashPrice" id="brand">
+                        </div>
+                        <div class="col-md-6">
+    
+                                        <label>Enter Credit Price</label>
+                            <input type="text" class="form-control" placeholder="Enter Credit Price" formControlName="creditPrice" id="brand">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row px-3">
+                          <div class="col-md-12">
+                             
+                            <input type="file" class="custom-file-input" id="validatedCustomFile"formControlName="image" required>
+                            <label class="custom-file-label" for="validatedCustomFile">Choose Game Image...</label>
+                            <div>
+                        
+                    </div>
+    
+            </div>
+    
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary"[disabled]="gameData.invalid" type="submit">Save</button>
+          </div>
+        </div>
+        </div>
+        </div>
+        </div>
+    </form>  
+
+    

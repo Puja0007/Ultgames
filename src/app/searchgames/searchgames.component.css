@@ -1,0 +1,24 @@
+.search{
+    background-image: url("../../assets/search1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+.search-bar input{
+    width:90%;
+    height: 50px;
+    border:1px solid #f7f7f7;
+   
+    
+}
+.search-bar img {
+    position:absolute;
+    left:180px;
+}
+.list{
+    width: 90%;
+    overflow-y: auto;
+}

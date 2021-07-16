@@ -1,0 +1,75 @@
+<div class="search container justify-content-center">
+    <h1 style="text-align: center; color: white" class="pt-5">
+      TRADE-IN YOUR STUFF FOR CASH OR CREDIT
+    </h1>
+    <div style="text-align: center">
+      <span style="color: white; font-size: 20px"
+        >Trade your games, systems, accessories, tablets, smartphones, retro
+        gaming, and more</span
+      >
+    </div>
+    <div style="text-align: center" class="pt-5">
+      <span style="color: white; font-size: 25px; font-weight: bold"
+        >WHAT’S YOUR STUFF WORTH?</span
+      >
+    </div>
+    <div class="row container search-bar d-flex justify-content-center pt-4">
+      <img
+        width="40px"
+        height="40px"
+        class="pt-2"
+        src="../../assets/search-glass.png"
+      />
+      <input
+        type="text" 
+        class="form-control pl-5 py-2"
+        placeholder="Find your games" [value]="pat" (clickOutside)="toggleDisplay=false" (input)="pat=$event.target.value" (click)="display()" appClickoutside (clickOutsideEvent)="close()"
+      />
+      <!-- <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button> -->
+      <div class="list" *ngIf="displayContent">
+
+        <div *ngFor="let Game of allGameList;let i = index" class="container">
+            <div class="card px-5"  *ngIf="checkPat(Game)">
+               
+            
+                    <div class="card-body" (click)="getGameDetails(Game,i)">
+                      {{Game}}
+                    </div>
+                
+              </div>
+        </div>
+    
+    </div>
+  
+    </div>
+  </div>
+  <div class="footer container pt-4 bg-light">
+    <h1 style="text-align: center; color: black; font-weight: bold">
+      TERMS & CONDITIONS
+    </h1>
+    <p>
+      Prices valid today only. Prices do not reflect applicable state taxes and
+      fees, if any. Trades must be in full working condition to receive full
+      value. Hardware must have all necessary components for trade. All trades are
+      subject to manager approval. GameStop reserves the right to cease taking
+      trades of any product without notice. By trading your product to GameStop,
+      you release GameStop from any claim relating to the product (including but
+      not limited to loss of a device or its contents) and any music, pictures or
+      other data stored on it. You also release GameStop from any claim for loss
+      or unauthorized access, use or disclosure of any personal or private data or
+      information stored on the device. All trades are final. See store associate
+      for details. No dealers. Offer valid in select GameStop stores only. iPod®,
+      iPhone® and iPad® (including images thereof) are registered trademarks of
+      Apple Inc. GameStop, Inc. is not affiliated with or endorsed by Apple Inc.
+      Cannot be combined with any other offer. Offers valid only towards items
+      normally accepted in trade. Offer valid in the United States, Puerto Rico
+      and Guam only. Void where prohibited. GameStop, Inc. reserves the right to
+      cancel, terminate, modify or suspend the offer for any reason without
+      notice. PowerUp Rewards Pro 10% extra in-store credit applies only when
+      trading games, accessories, or consumer electronics. PowerUp Rewards Elite
+      Pro 20% extra in-store credit applies only when trading games, accessories,
+      or consumer electronics. It does not apply to the trade of systems, which
+      include, but are not limited to, Microsoft, Sony and Nintendo gaming
+      consoles.
+    </p>
+  </div>

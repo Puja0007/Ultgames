@@ -1,0 +1,13 @@
+.container{
+    margin: 10px 30px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 20px;
+    grid-auto-rows: minmax(100px,auto);
+    grid-auto-columns: minmax(50px,auto);
+}
+.item{
+    background-color: burlywood;
+    border: 3px green solid;
+    border-radius: 3px;
+}
