@@ -11,7 +11,7 @@ import { ApistoreService } from './apistore.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ClickoutsideDirective } from './clickoutside.directive';
 import { AdmincrudComponent } from './admincrud/admincrud.component';
-import { ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Select some icons (use an object, not an array)
 const icons = {
@@ -28,12 +28,14 @@ const icons = {
   exports: [
     FeatherModule,
     HttpClientModule,
+    FormsModule, 
+    ReactiveFormsModule
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FeatherModule.pick(icons),
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     ApistoreService

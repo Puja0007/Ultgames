@@ -59,7 +59,7 @@
 
 
 <!-- Modal -->
-<form [formGroup]="gameData" (submit)="onSubmit()">
+<form [formGroup]="gameData" (ngSubmit)="onSubmit()">
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -78,7 +78,7 @@
     
                     <label>Enter Game Name</label>
     
-                    <input type="text" class="form-control" placeholder="Enter Name" id="brand" formControlName="name">
+                    <input type="text" class="form-control" placeholder="Enter Name" id="brand" formControlName="description">
                 </div>
                     </div> 
                       <br>
@@ -97,7 +97,7 @@
                     <div class="row px-3">
                           <div class="col-md-12">
                              
-                            <input type="file" class="custom-file-input" id="validatedCustomFile"formControlName="image" required>
+                            <input type="file" class="custom-file-input" id="validatedCustomFile"formControlName="image" #imagePicker (change)="onImagePicked($event)" required>
                             <label class="custom-file-label" for="validatedCustomFile">Choose Game Image...</label>
                             <div>
                         
@@ -109,12 +109,14 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary"[disabled]="gameData.invalid" type="submit">Save</button>
+            <button type="submit" class="btn btn-primary">Save</button>
           </div>
         </div>
         </div>
         </div>
         </div>
-    </form>  
+    </form> 
+
+    
 
     
