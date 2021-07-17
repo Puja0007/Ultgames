@@ -17,4 +17,8 @@ export class ApistoreService {
   addGameData(data){
     return this.http.post<any>('http://127.0.0.1:3000/items',data);
   }
+editGameData(id,payLoad){
+
+  return this.http.put<any>('http://127.0.0.1:3000/items/'+id,payLoad); 
+}
 }

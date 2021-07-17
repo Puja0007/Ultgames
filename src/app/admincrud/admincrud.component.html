@@ -17,28 +17,25 @@
                     <thead class="table-secondary">
                         <tr>
                             <th scope="col">Game Name</th>
-                            <th scope="col">Game ID</th>
-                            <th scope="col">Pro Value</th>
-                            <th scope="col">Pro Value Score</th>
-                            <th scope="col">Regular value</th>
-                            <th scope="col">Regular Value Score</th>
+                            <th scope="col">Catagory</th>
+                            <th scope="col">Cash Price</th>
+                            <th scope="col">Credit Price</th>
                             <th scope="col">Actions</th>
                         </tr>
                     </thead>
-                    <tbody class="bg-white">
+                    <tbody class="bg-white" *ngFor="let row of allGames; let i = index">
 
                         <ng-container >
                             <tr>
-                                <td></td> 
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>{{row.description}}</td> 
+                                <td>{{row.category}}</td>
+                                <td>{{row.cashPrice}}</td>
+                                <td>{{row.creditPrice}}</td>
+                                
                                 <td>
                                     
-                                    <i-feather class="text-primary" name="eye" title="Details"></i-feather>&nbsp;&nbsp;
-                                    <button class="btn btn-link" data-toggle="modal" data-target="#exampleModal">
+                                    <!-- <i-feather class="text-primary" name="eye" title="Details"></i-feather>&nbsp;&nbsp; -->
+                                    <button class="btn btn-link" data-toggle="modal" data-target="#exampleModal" (click)="editGame(row._id,i)">
                                         <i-feather class="text-warning" name="edit" rel="tooltip" title="Edit"></i-feather>&nbsp;&nbsp;
                                     </button>
                                     
@@ -59,13 +56,14 @@
 
 
 <!-- Modal -->
-<form [formGroup]="gameData" (ngSubmit)="onSubmit()">
+<form [formGroup]="gameData">
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Add New Game</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <div class="modal-header modal-head">
+              <h5 class="modal-title text-white" id="exampleModalLabel" *ngIf="!editGameCheck">Add New Game</h5>
+              <h5 class="modal-title text-white" id="exampleModalLabel"*ngIf="editGameCheck">Edit Game</h5>
+              <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
@@ -81,6 +79,17 @@
                     <input type="text" class="form-control" placeholder="Enter Name" id="brand" formControlName="description">
                 </div>
                     </div> 
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12">
+            
+            
+            
+                            <label>Enter Catagory</label>
+            
+                            <input type="text" class="form-control" placeholder="Enter Catagory" id="brand" formControlName="category">
+                        </div>
+                            </div>
                       <br>
                     <div class="row">
                         <div class="col-md-6">
@@ -109,7 +118,9 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="submit" class="btn btn-primary" data-dismiss="modal" [disabled]="gameData.invalid" *ngIf="!editGameCheck" (click)="onSubmit()">Save</button>
+            <button type="submit" class="btn btn-primary" data-dismiss="modal" [disabled]="gameData.invalid" *ngIf="editGameCheck" (click)="onEdit()">Save</button>
+
           </div>
         </div>
         </div>
