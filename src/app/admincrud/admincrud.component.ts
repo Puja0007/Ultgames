@@ -77,7 +77,7 @@ editGameCheck:boolean=false;
 
    
   }
-  onEdit(){
+  onEditSubmit(){
     const category = this.gameData.value.category
     const creditPrice= this.gameData.value.creditPrice
     const cashPrice = this.gameData.value.cashPrice
@@ -106,5 +106,20 @@ editGameCheck:boolean=false;
       
     }
     )
+    
+  }
+  deleteGameData(id){
+    this.gameApi.deleteGame(id).subscribe((res:any)=>{
+
+    },
+    err=>{
+      console.log(err);
+      
+    }
+    )
+  }
+  formReset(){
+    this.editGameCheck=false;
+    this.gameData.reset();
   }
 }

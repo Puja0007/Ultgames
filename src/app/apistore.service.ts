@@ -21,4 +21,7 @@ editGameData(id,payLoad){
 
   return this.http.put<any>('http://127.0.0.1:3000/items/'+id,payLoad); 
 }
+deleteGame(id){
+  return this.http.delete<any>('http://127.0.0.1:3000/items/'+id);
+}
 }
