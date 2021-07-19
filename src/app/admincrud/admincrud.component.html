@@ -3,7 +3,7 @@
         <div class="row justify-content-center">
             <div class="col-12" style="margin-top:20px; background-color: white;">
                 <h3 style="display: inline;"><i-feather name="cpu" class="mr-2 text-primary"></i-feather>GAMES</h3>
-                <button style="float: right; margin-top:10px;"  class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">ADD <i-feather name="plus"></i-feather></button>
+                <button style="float: right; margin-top:10px;"  class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" (click)="formReset()">ADD <i-feather name="plus"></i-feather></button>
                 <br><br>
                 <p>Admin can view, add, edit, activate/deactivate or release a Game.</p>
             </div>
@@ -39,7 +39,7 @@
                                         <i-feather class="text-warning" name="edit" rel="tooltip" title="Edit"></i-feather>&nbsp;&nbsp;
                                     </button>
                                     
-                                    <i-feather name="trash" title="Delete"></i-feather>&nbsp;&nbsp;
+                                    <i-feather name="trash" title="Delete" (click)="deleteGameData(row._id)"></i-feather>&nbsp;&nbsp;
 
                     
                                 </td>
@@ -119,7 +119,7 @@
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             <button type="submit" class="btn btn-primary" data-dismiss="modal" [disabled]="gameData.invalid" *ngIf="!editGameCheck" (click)="onSubmit()">Save</button>
-            <button type="submit" class="btn btn-primary" data-dismiss="modal" [disabled]="gameData.invalid" *ngIf="editGameCheck" (click)="onEdit()">Save</button>
+            <button type="submit" class="btn btn-primary" data-dismiss="modal" [disabled]="gameData.invalid" *ngIf="editGameCheck" (click)="onEditSubmit()">Save Changes</button>
 
           </div>
         </div>
