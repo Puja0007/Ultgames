@@ -23,7 +23,7 @@
                             <th scope="col">Actions</th>
                         </tr>
                     </thead>
-                    <tbody class="bg-white" *ngFor="let row of allGames; let i = index">
+                    <tbody class="bg-white" *ngFor="let row of allGames | paginate: { itemsPerPage: 10, currentPage: p }">
 
                         <ng-container >
                             <tr>
@@ -35,7 +35,7 @@
                                 <td>
                                     
                                     <!-- <i-feather class="text-primary" name="eye" title="Details"></i-feather>&nbsp;&nbsp; -->
-                                    <button class="btn btn-link" data-toggle="modal" data-target="#exampleModal" (click)="editGame(row._id,i)">
+                                    <button class="btn btn-link" data-toggle="modal" data-target="#exampleModal" (click)="editGame(row._id)">
                                         <i-feather class="text-warning" name="edit" rel="tooltip" title="Edit"></i-feather>&nbsp;&nbsp;
                                     </button>
                                     
@@ -47,6 +47,7 @@
                         </ng-container>
                     </tbody>
                 </table>
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
             </div>
         </div>
     </div>

@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FeatherModule } from 'angular-feather'
-
+import {NgxPaginationModule} from 'ngx-pagination';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {ChevronLeft,Cpu,Eye,Plus,X,Edit,Trash } from 'angular-feather/icons';
@@ -35,7 +35,8 @@ const icons = {
     BrowserModule,
     AppRoutingModule,
     FeatherModule.pick(icons),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
   ],
   providers: [
     ApistoreService

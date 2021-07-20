@@ -8,6 +8,7 @@ import {ReactiveFormsModule} from '@angular/forms';
   styleUrls: ['./admincrud.component.css']
 })
 export class AdmincrudComponent implements OnInit {
+  p: number = 1;
 imagePreview:string
 gameData:FormGroup;
 allGames=[];
@@ -23,12 +24,12 @@ editGameCheck:boolean=false;
       category:['',[Validators.required]],
       cashPrice:['',[Validators.required]],
       creditPrice:['',[Validators.required]],
-      image:[[Validators.required]]
+      image:['',[Validators.required]]
     })
 
     this.gameApi.getAllGames().subscribe((result:any)=>{
       result.forEach(element => {
-        console.log(element);
+        
         this.allGames.push(element);
       });
       
@@ -55,7 +56,17 @@ editGameCheck:boolean=false;
     formData.append('description', description)
     formData.append('image', image)
   this.gameApi.addGameData(formData).subscribe((result)=>{
-
+    console.log(result);
+    this.allGames = []
+    this.gameApi.getAllGames().subscribe((result:any)=>{
+      result.forEach(element => {
+        console.log(element);
+        this.allGames.push(element);
+      });
+      
+    }, err=>{
+      console.error(err);
+    })
   },
   err=>{
     console.error(err);
@@ -64,14 +75,15 @@ editGameCheck:boolean=false;
   );
   }
 
-  editGame(id,i){
+  editGame(id){
     this.gameId=id;
+    let selectedGame = this.allGames.find(x=>x._id===id)
     this.editGameCheck=true;
-   this.gameData.get('description').setValue(this.allGames[i].description);
-   this.gameData.get('category').setValue(this.allGames[i].category);
-   this.gameData.get('creditPrice').setValue(this.allGames[i].creditPrice);
-   this.gameData.get('cashPrice').setValue(this.allGames[i].cashPrice);
-   this.gameData.get('image').setValue(this.allGames[i].imagePath);
+   this.gameData.get('description').setValue(selectedGame.description);
+   this.gameData.get('category').setValue(selectedGame.category);
+   this.gameData.get('creditPrice').setValue(selectedGame.creditPrice);
+   this.gameData.get('cashPrice').setValue(selectedGame.cashPrice);
+   this.gameData.get('image').setValue(selectedGame.imagePath);
   console.log(this.gameData.value);
   
 
@@ -84,37 +96,60 @@ editGameCheck:boolean=false;
     const description= this.gameData.value.description
     const image=  this.gameData.value.image
     console.log(this.gameData.value);
-    // const formData = new FormData();
-    // formData.append('category', category);
-    // formData.append('creditPrice', creditPrice);
-    // formData.append('cashPrice', cashPrice);
-    // formData.append('description', description);
-    // formData.append('image', image);
-   const formData = {
-     category ,
-     creditPrice,
-     cashPrice ,
-     description,
-    image
-   }
+    let formData
+    if(typeof image==='object'){
+
+      formData = new FormData();
+      formData.append('category', category);
+      formData.append('creditPrice', creditPrice);
+      formData.append('cashPrice', cashPrice);
+      formData.append('description', description);
+      formData.append('image', image);
+    }
+    else{
+
+       formData = {
+         category ,
+         creditPrice,
+         cashPrice ,
+         description,
+        image
+       }
+    }
     this.gameApi.editGameData(this.gameId,formData).subscribe((res:any)=>{
       console.log(res);
+      this.allGames = []
+    this.gameApi.getAllGames().subscribe((result:any)=>{
+      result.forEach(element => {
+        console.log(element);
+        this.allGames.push(element);
+      });
       
+    }, err=>{
+      console.error(err);
+    })
     },
     err=>{
       console.log(err);
-      
     }
     )
     
   }
   deleteGameData(id){
     this.gameApi.deleteGame(id).subscribe((res:any)=>{
-
+      this.allGames = []
+    this.gameApi.getAllGames().subscribe((result:any)=>{
+      result.forEach(element => {
+        console.log(element);
+        this.allGames.push(element);
+      });
+      
+    }, err=>{
+      console.error(err);
+    })
     },
     err=>{
       console.log(err);
-      
     }
     )
   }
