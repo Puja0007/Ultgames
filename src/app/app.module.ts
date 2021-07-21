@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ClickoutsideDirective } from './clickoutside.directive';
 import { AdmincrudComponent } from './admincrud/admincrud.component';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 // Select some icons (use an object, not an array)
 const icons = {
@@ -23,7 +24,8 @@ const icons = {
     SearchgamesComponent,
     ProductdetailsComponent,
     ClickoutsideDirective,
-    AdmincrudComponent
+    AdmincrudComponent,
+    CheckoutComponent
   ],
   exports: [
     FeatherModule,

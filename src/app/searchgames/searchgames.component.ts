@@ -43,7 +43,7 @@ getGameDetails(Game,i){
       this.gameIdArr.push(element._id);
       
     });
-    console.log(this.allGameList);
+    // console.log(this.allGameList);
     
     
     
