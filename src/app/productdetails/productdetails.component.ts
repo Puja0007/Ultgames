@@ -9,15 +9,16 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
   styleUrls: ['./productdetails.component.css']
 })
 export class ProductdetailsComponent implements OnInit {
+  show:boolean=false;
 img:string;
 sellForm:FormGroup;
   constructor(private route1:ActivatedRoute,private gameApi:ApistoreService,private fb: FormBuilder) {
     this.sellForm = this.fb.group({
-      Name:['',[Validators.required]],
-      category:['',[Validators.required]],
-      cashPrice:['',[Validators.required]],
-      creditPrice:['',[Validators.required]],
-      account:['']
+      name:['',[Validators.required]],
+      address:['',[Validators.required]],
+      account:[''],
+      ifsc:['']
+      
     })
    }
 
@@ -32,5 +33,16 @@ sellForm:FormGroup;
     })
     
   }
-  
+  changeShow(value:string){
+   if(value === 'Cash'){
+     this.show = true;
+   }
+   else if(value === 'Credit'){
+     this.show = false;
+   }
+  }
+  onSubmit(){
+    console.log(this.sellForm.value);
+    
+  }
 }
