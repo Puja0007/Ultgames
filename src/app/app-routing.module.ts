@@ -11,7 +11,7 @@ const routes: Routes = [
   {path :'search', component: SearchgamesComponent},
   {path:'items/:id', component:ProductdetailsComponent},
   {path:'admin',component:AdmincrudComponent},
-  {path:'checkout', component:CheckoutComponent}
+  {path:'checkout/:id', component:CheckoutComponent}
 ];
 
 @NgModule({
