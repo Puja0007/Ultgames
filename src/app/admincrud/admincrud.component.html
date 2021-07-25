@@ -47,7 +47,10 @@
                         </ng-container>
                     </tbody>
                 </table>
-                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                <div class="pagination">
+                    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                </div>
+                
             </div>
         </div>
     </div>
