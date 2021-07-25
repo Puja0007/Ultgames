@@ -1,0 +1,122 @@
+
+
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <div class="row container search-bar d-flex justify-content-center pt-4 search">
+        <img
+          width="40px"
+          height="40px"
+          class="pt-2"
+          src="../../assets/search-glass.png"
+        />
+        <input
+          type="text" 
+          class="form-control pl-5 py-2"
+          placeholder="Find your orders"
+        />
+        <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
+        
+    
+      </div>
+    
+    
+</div>
+
+
+<div class="card border-secondary mb-3 container">
+    <div class="card-header mt-2 heading">
+     Ordered On 25/07/2021
+    </div>
+    <div class="card-body">
+       <div class="row">
+           <div class="col-md-3">
+            <img class="game-img" src="../../assets/game2.jpg" height="200px">
+           </div>
+           <div class="col-md-3">
+             <h3>Game Details</h3>  
+               
+           </div>
+           <div class="col-md-3">
+               <h3>
+                Credit Price
+               </h3>
+               
+               <br>
+            ₹260
+           </div>
+           <div class="col-md-2">
+               <h3>
+                Item status
+               </h3>
+               
+               <br>
+               <p class="text-warning">Waiting for Approval</p>
+              
+           </div>
+           <div class="col-md-1 pt-5">
+            <button class="btn bg-transparent" (click)="orderDetails()" data-toggle="modal" data-target="#myModal">
+                <i-feather name="chevron-right" class="chevron-feather" title="Order Details"></i-feather>
+            </button>
+               
+            
+           </div>
+       </div>
+    </div>
+  </div>
+  <!-- Order Details Modal -->
+
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="row">
+        <div class="container d-flex justify-content-center">
+            <div class="col-md-6">
+                <div class="card text-center">
+                    <div class="close text"  (click)="cancel()">X</div>
+                    <div class="card-body"> <img src="../../assets/game2.jpg" height="200px">
+                        <div class="container-fluid container1">
+                            <span *ngFor="let item of counts;let i = index">
+                              <span class="circle-desc" [class.circle-desc-active]="orderStatus == item">{{ item }}</span>
+                              <span class="circles" [class.active]="orderStatus == item"></span>
+                              <span class="bar" *ngIf="(i != counts.length-1)"></span>
+                            </span>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-sm-6" *ngIf="credit">
+                                  <div class="card">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Score Creditedt</h5>
+                                      <p class="card-text">20 Points</p>
+                                      <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-sm-6" *ngIf="cash">
+                                    <div class="card">
+                                      <div class="card-body">
+                                        <h5 class="card-title">Cash Credited</h5>
+                                        <p class="card-text">100 /-</p>
+                                        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                                      </div>
+                                    </div>
+                                  </div>
+                                <div class="col-sm-6">
+                                  <div class="card">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Total Score</h5>
+                                      <p class="card-text">100 Points</p>
+                                      <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                        <!-- <h5 class="title">Your internet explorer is not longer supported</h5>
+                        <p class="description">Outdated browser can expose your computer to security risk. To get the best experience using our site, you will need to upgrade to latest browser.</p>
+                        <div class="row">
+                            <div class="col-sm-6 mb-2 mb-md-0"> <button class="btn btn-out btn-primary btn-square btn-large"> <i class="fa fa-download"></i> DOWNLOAD CHROME</button> </div>
+                            <div class="col-sm-6"> <button class="btn btn-out btn-primary btn-square btn-large"> <i class="fa fa-download"></i> DOWNLOAD FIREFOX</button> </div>
+                        </div>
+                        <div class="text-center mt-30"> <a href="#" id="close-modal">Not Now</a> </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

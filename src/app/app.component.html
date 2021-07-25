@@ -4,11 +4,19 @@
       <i-feather name="chevron-left"></i-feather>
       <span>Back</span>
     </div>
+    
   </div>
   <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
     <div>
       <img style="height: 90px" src="../assets/logo.png" />
     </div>
+  </div>
+  <div class="navbar-nav float-right head-route">
+    <a class="nav-item nav-link active" [routerLink]="['/search']" style="font-size: 30px;">Home</a>
+    <a class="nav-item nav-link" [routerLink]="['/admin']"  style="font-size: 30px;">Games</a>
+    <a class="nav-item nav-link" [routerLink]="['/orderhistory']" style="font-size: 30px;">Orders</a>
+    <a class="nav-item nav-link" [routerLink]="['/userrequests']" style="font-size: 30px;">Requests</a>
+   
   </div>
 </nav>
 
