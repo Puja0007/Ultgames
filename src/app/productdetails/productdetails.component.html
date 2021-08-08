@@ -1,38 +1,36 @@
 <div>
-    <div class="row">
+    <div class="row p-5">
         <div class="col-md-6">
             <img src={{img}} class="mt-5" height="500px" width="500px">
         </div>
         <div class="col-md-6 mt-5">
             <h5>TRADE VALUE FOR:</h5>
-            <h1>MLB The Show 21</h1>
-            <p>Xbox One</p>
+            <h1>{{gamename}}</h1>
+            <p>Category : {{category}}</p>
             <div class="row">
-               
-                <div class="col-md-6">
+               <div class="col-md-2"></div>
+                <div class="col-md-4">
                     <div class="list-group">
                         <button type="button" class="list-group-item list-group-item bg-success font-weight-bold">
-                            PRO VALUE
+                            Credit Price
                         </button>
-                        <li class="list-group-item">Store Credit$24.20</li>
-                        <li class="list-group-item">Cash</li>
-                        
+                        <li class="list-group-item">{{creditprice}}</li>
+                                               
                       </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <ul class="list-group list-group-flush border">
                         <button type="button" class="list-group-item list-group-item-action active font-weight-bold">
-                            REGULAR VALUE
+                            Cash Price
                           </button>
-                        <li class="list-group-item">Store Credit$22.00</li>
-                        <li class="list-group-item">Cash</li>
-                       
+                        <li class="list-group-item">{{cashprice}}</li>
+                                             
                       </ul>
                 </div>
             </div>
             <div class="row">
-                
-                <div class="col-md-10 m-5 d-flex justify-content-center">
+                <div class="col-md-3"></div>
+                <div class="col-md-5 m-5 d-flex justify-content-center">
 
                     <button class="btn btn-success" style="width: 250px;" [routerLink] = "['/checkout', id]">Checkout</button>
                 </div>
@@ -42,9 +40,20 @@
 </div>
   
   
+<div style="background-color: #0000000d; margin-top: 50px;">
 
-<div class="container bg-light justify-content-center">
+
+<div class="container" style="margin: auto;">
     <h1 style="text-align: center; color: black; font-weight: bold" class="pt-5">TRADE INSTRUCTIONS</h1>
+    
+    <div class="items" >
+        <div class="item">Take your Saved Trade Summary to a GameStop store before it expires.</div>
+        <div class="item">Make sure to bring all of the items you want to trade with you to the store.</div>
+        <div class="item">Charge any device(s) you are bringing in for trade.</div>
+        <div class="item">Bring any cords, power chargers and related accessories for products you are trading.</div>
+        <div class="item">Delete any sensitive or personal images, stored data and/or cached data.</div>
+        <div class="item">Remove any SIM cards, memory cards or other items not originally part of the product.</div>
+    </div>
     <!-- <div class="container">
         <div class="item">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo accusantium nostrum reiciendis alias quia culpa ad quasi repellat amet, eos cum quam, enim a architecto adipisci. Perspiciatis velit eum assumenda.
@@ -66,4 +75,9 @@
        </div>
    </div> -->
 
+</div>
+</div>
+
+<div style="margin: auto; width: 80%; margin-top: 50px;">
+    <p>*Prices valid today only. Prices do not reflect applicable state taxes and fees, if any. Trades must be in full working condition to receive full value. Hardware must have all necessary components for trade. All trades are subject to manager approval. GameStop reserves the right to cease taking trades of any product without notice. By trading your product to GameStop, you release GameStop from any claim relating to the product (including but not limited to loss of a device or its contents) and any music, pictures or other data stored on it. You also release GameStop from any claim for loss or unauthorized access, use or disclosure of any personal or private data or information stored on the device. All trades are final. See store associate for details. No dealers. Offer valid in select GameStop stores only. iPod®, iPhone®and iPad® (including images thereof) are registered trademarks of Apple Inc. GameStop, Inc. is not affiliated with or endorsed by Apple Inc. Cannot be combined with any other offer. Offers valid only towards items normally accepted in trade. Offer valid in the United States, Puerto Rico and Guam only. Void where prohibited. GameStop, Inc. reserves the right to cancel, terminate, modify or suspend the offer for any reason without notice. PowerUp Rewards Pro 10% extra in-store credit applies only when trading games and accessories. It does not apply to the trade of systems or consumer electronics. </p>
 </div>

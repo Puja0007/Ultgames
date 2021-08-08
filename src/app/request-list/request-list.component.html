@@ -22,23 +22,36 @@
             <th scope="col">Sr No.</th> 
             <th scope="col">User Name</th>
             <th scope="col">Game Name</th>
-            <th scope="col">Game Id</th>
+            <!-- <th scope="col">Game Id</th> -->
             <th scope="col">Payment Mode</th>
             <th scope="col">Amount</th>
-            <th scope="col">Actions</th>
+            <th scope="col">Status</th>
+            <th scope="col">Change Status</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td> 
-            <td>Puja</td>
-            <td>Game of Thrones</td>
-            <td>GOT-1</td>
-            <td>Cash/Credit</td>
-            <td>230 /-</td>
+          <tr *ngFor="let req of reqObjArr;let i = index" >
+            <td>{{i}}</td> 
+            <td>{{req.userName}}</td>
+            <td>{{req.gameName}}</td>
+            <td>{{req.paymentMode}}</td>
+            <td>{{req.amount}}</td>
+            <td>{{req.status}}</td>
             <td>
-                <button class="btn btn-success">Approve</button>&nbsp;&nbsp;
-                <button class="btn btn-danger">Reject</button>
+                <!-- <button class="btn btn-success">Approve</button>&nbsp;&nbsp;
+                <button class="btn btn-danger">Reject</button> -->
+
+                  <div class="dropdown ">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Dropdown
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                      <button class="dropdown-item" type="button"  (click)="changeStatus('received',i)">Received</button>
+                      <button class="dropdown-item" type="button"  (click)="changeStatus('approve',i)">Approve</button>
+                      <button class="dropdown-item" type="button"  (click)="changeStatus('reject',i)">Reject</button>
+                      <button class="dropdown-item" type="button" (click)="changeStatus('billed',i)">Billed</button>
+                    </div>
+                  </div>
             </td>
           </tr>
         </tbody>
