@@ -16,3 +16,31 @@
     grid-auto-columns: minmax(50px,auto);
     
 }
+
+.prod{
+    display: flex;
+    width: 80%;
+    margin: auto;
+}
+
+.prod > img{
+    margin-top: 30px;
+flex: 0.45;
+}
+.prod > .prod-attr{
+    margin-top: 30px;
+    flex: 0.55;
+}
+
+.prod-attr-val,.prod-attr-chk{
+    width: 80%;
+    display: flex;
+    align-items: center;
+}
+.prod-attr-val>.list-group{
+flex: 0.5;
+}
+
+.prod-attr-chk{
+    padding: 0 20%;
+}
