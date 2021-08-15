@@ -16,6 +16,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { OrderHistoryComponent } from './order-history/order-history.component';
 import { OrderDetailsComponent } from './order-details/order-details.component';
 import { RequestListComponent } from './request-list/request-list.component';
+import { LoginComponent } from './login/login.component';
 
 // Select some icons (use an object, not an array)
 const icons = {
@@ -31,7 +32,8 @@ const icons = {
     CheckoutComponent,
     OrderHistoryComponent,
     OrderDetailsComponent,
-    RequestListComponent
+    RequestListComponent,
+    LoginComponent
   ],
   exports: [
     FeatherModule,

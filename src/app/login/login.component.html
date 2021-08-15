@@ -1,0 +1,27 @@
+
+    <div class="d-flex justify-content-center login-body">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="container">
+              <label for="uname" style="font-size: 25px;"><b>Username</b></label>
+              <input type="text" placeholder="Enter Username" formControlName="username">
+              <span class="text-danger" [class.d-none]="loginForm.get('username').valid || loginForm.get('username').untouched">Username is required</span>
+             <br>
+              <label for="psw" style="font-size: 25px;"><b>Password</b></label>
+              <input type="password" placeholder="Enter Password" formControlName="pswrd">
+              <span class="text-danger" [class.d-none]="loginForm.get('pswrd').valid || loginForm.get('pswrd').untouched">Password is required</span>
+                  
+              <button type="submit">Login</button>
+              <label>
+                <input type="checkbox" checked="checked" name="remember"> Remember me
+              </label>
+            </div>
+          
+            <div class="container" style="background-color:#f1f1f1">
+              <button type="button" class="cancelbtn">Cancel</button>
+              <span class="psw"><a href="#">Forgot password?</a></span>
+            </div>
+        </form>
+    </div>
+
+
+  
